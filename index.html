@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#103b25">
+<meta name="description" content="MOLA 42 BÜFE dijital menüsü. Kahvaltı, tost, makarna, aperatif ve kahve çeşitleri.">
+<title>MOLA 42 BÜFE | Dijital Menü</title>
+
+<style>
+:root {
+ --green:#103b25;
+ --green2:#1c6338;
+ --yellow:#ffd43b;
+ --orange:#ff8c24;
+ --white:#fff;
+ --dark:#101710;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ background:#101710;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ background:linear-gradient(120deg,#103b25,#267b40);
+ padding:22px 15px;
+ text-align:center;
+ border-bottom:5px solid var(--yellow);
+}
+.logo{
+ font-size:clamp(35px,8vw,65px);
+ font-weight:1000;
+ font-style:italic;
+ color:white;
+ text-shadow:3px 4px 0 #092616;
+}
+header p{
+ color:var(--yellow);
+ font-weight:bold;
+ letter-spacing:4px;
+ font-size:12px;
+}
+.hero{
+ min-height:340px;
+ background:
+ linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.15)),
+ url("https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1400") center/cover;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ padding:35px 7%;
+}
+.hero h1{
+ font-size:clamp(32px,6vw,55px);
+ max-width:550px;
+ margin:0;
+ color:var(--yellow);
+ text-shadow:2px 3px 5px #000;
+}
+.hero p{font-size:17px;font-weight:bold}
+.hero a{
+ background:var(--yellow);
+ color:#142819;
+ padding:14px 25px;
+ width:max-content;
+ border-radius:30px;
+ font-weight:900;
+ text-decoration:none;
+}
+nav{
+ display:flex;
+ overflow-x:auto;
+ gap:9px;
+ padding:13px;
+ background:#183c25;
+ position:sticky;
+ top:0;
+ z-index:20;
+}
+nav a{
+ flex-shrink:0;
+ background:var(--yellow);
+ color:#142819;
+ padding:11px 16px;
+ border-radius:25px;
+ text-decoration:none;
+ font-weight:bold;
+ font-size:13px;
+}
+.search{
+ display:block;
+ width:90%;
+ max-width:550px;
+ margin:22px auto;
+ padding:15px;
+ border-radius:30px;
+ border:2px solid var(--yellow);
+ font-size:16px;
+}
+main{max-width:1100px;margin:auto;padding:12px}
+.category{margin:35px 0}
+.category-title{
+ color:var(--yellow);
+ font-size:25px;
+ text-align:center;
+ margin-bottom:17px;
+}
+.category-photo{
+ width:100%;
+ height:210px;
+ object-fit:cover;
+ border-radius:18px;
+ border:2px solid var(--yellow);
+ box-shadow:0 5px 20px #0008;
+}
+.category-subtitle{
+ text-align:center;
+ color:#ddd;
+ margin:12px 0 20px;
+ font-size:14px;
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:13px;
+}
+.item{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
+ padding:17px;
+ border-radius:13px;
+ background:linear-gradient(130deg,#205b35,#153c25);
+ border:1px solid #53824a;
+ box-shadow:0 4px 12px #0005;
+ transition:.2s;
+}
+.item:hover{transform:translateY(-3px);border-color:var(--yellow)}
+.item-name{font-weight:bold;font-size:15px}
+.price{
+ color:#171b0e;
+ background:var(--yellow);
+ border-radius:9px;
+ padding:8px 10px;
+ font-weight:1000;
+ white-space:nowrap;
+}
+.ingredients{
+ background:#214b30;
+ border-left:5px solid var(--orange);
+ padding:18px;
+ border-radius:12px;
+ line-height:2;
+ font-size:14px;
+}
+.info{
+ margin:40px 0;
+ text-align:center;
+ background:linear-gradient(135deg,#1c6338,#103b25);
+ border:3px solid var(--yellow);
+ border-radius:20px;
+ padding:28px 15px;
+}
+.info h2{color:var(--yellow);font-size:27px}
+.info p{line-height:2}
+.contact{
+ display:inline-block;
+ background:#25c65a;
+ color:white;
+ text-decoration:none;
+ padding:15px 25px;
+ border-radius:30px;
+ font-weight:bold;
+ margin:8px;
+}
+footer{
+ text-align:center;
+ background:#080f09;
+ padding:25px;
+ color:#ccc;
+ font-size:13px;
+ line-height:2;
+}
+footer strong{color:var(--yellow)}
+@media(max-width:500px){
+ .hero{min-height:290px}
+ .category-photo{height:165px}
+ .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">MOLA 42 BÜFE</div>
+ <p>DİJİTAL MENÜ • LEZZETLİ MOLALAR</p>
+</header>
+
+<section class="hero">
+ <h1>GÜZEL BİR MOLA VER!</h1>
+ <p>Kahvaltı, sıcacık tostlar ve nefis kahveler seni bekliyor.</p>
+ <a href="#kahvalti">MENÜYÜ KEŞFET ↓</a>
+</section>
+
+<nav>
+ <a href="#kahvalti">Kahvaltı</a>
+ <a href="#tava">Tava & Izgara</a>
+ <a href="#tost">Tostlar</a>
+ <a href="#aperatif">Aperatifler</a>
+ <a href="#sicak">İçecekler</a>
+ <a href="#kahve">Kahveler</a>
+</nav>
+
+<input class="search" id="search"
+placeholder="🔎 Menüde ürün ara..."
+oninput="filterItems()">
+
+<main>
+
+<!-- KAHVALTI -->
+<section class="category" id="kahvalti">
+<h2 class="category-title">☀️ KAHVALTI</h2>
+<img class="category-photo"
+src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=1000"
+alt="Kahvaltı">
+<p class="category-subtitle">Güne lezzetli bir başlangıç!</p>
+<div class="grid">
+ <div class="item"><span class="item-name">Ekmek Arası Serpme Kahvaltı</span><span class="price">240 TL</span></div>
+ <div class="item"><span class="item-name">Kahvaltı Tabağı</span><span class="price">270 TL</span></div>
+</div>
+<h3 style="color:#ffd43b">Kahvaltı İçerikleri</h3>
+<div class="ingredients">
+Kavurma • Salam • Kaşar • Krem Peynir • Siyah Zeytin • Tereyağı • Bal • Çikolata • Haşlanmış Yumurta • Domates • Sucuk • Sosis • Beyaz Peynir • Küllü Peynir • Yeşil Zeytin • Helva • Kaymak • Fındık Ezmesi • Patso • Salatalık
+</div>
+</section>
+
+<!-- TAVA -->
+<section class="category" id="tava">
+<h2 class="category-title">🍳 TAVA VE IZGARA</h2>
+<img class="category-photo"
+src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1000"
+alt="Yumurta ve kahvaltı">
+<p class="category-subtitle">Sıcak sıcak, taze taze!</p>
+<div class="grid">
+ <div class="item"><span class="item-name">Menemen</span><span class="price">160 TL</span></div>
+ <div class="item"><span class="item-name">Çılbır</span><span class="price">170 TL</span></div>
+ <div class="item"><span class="item-name">Sucuklu Yumurta</span><span class="price">180 TL</span></div>
+ <div class="item"><span class="item-name">Kavurmalı Yumurta</span><span class="price">240 TL</span></div>
+ <div class="item"><span class="item-name">Ekmek Arası Tavuk Pirzola</span><span class="price">200 TL</span></div>
+ <div class="item"><span class="item-name">Ekmek Arası Köfte</span><span class="price">240 TL</span></div>
+ <div class="item"><span class="item-name">Kumru</span><span class="price">190 TL</span></div>
+ <div class="item"><span class="item-name">FHM</span><span class="price">190 TL</span></div>
+</div>
+</section>
+
+<!-- TOST -->
+<section class="category" id="tost">
+<h2 class="category-title">🥪 TOST MENÜSÜ</h2>
+<img class="category-photo"
+src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=1000"
+alt="Tost ve sandviç">
+<p class="category-subtitle">Tostlarımız tereyağlıdır!</p>
+<div class="grid">
+ <div class="item"><span class="item-name">Sucuklu Tost</span><span class="price">150 TL</span></div>
+ <div class="item"><span class="item-name">Kaşarlı Tost</span><span class="price">130 TL</span></div>
+ <div class="item"><span class="item-name">Küflü Yeşil Peynir Tost</span><span class="price">160 TL</span></div>
+ <div class="item"><span class="item-name">Sucuk Kaşar Sebzeli Tost</span><span class="price">170 TL</span></div>
+ <div class="item"><span class="item-name">Kavurmalı Tost</span><span class="price">190 TL</span></div>
+ <div class="item"><span class="item-name">Sucuk Kaşar Karışık Tost</span><span class="price">170 TL</span></div>
+ <div class="item"><span class="item-name">Kavurma Kaşar Tost</span><span class="price">220 TL</span></div>
+ <div class="item"><span class="item-name">Kavurma Kaşar Sebzeli Tost</span><span class="price">230 TL</span></div>
+ <div class="item"><span class="item-name">Kavurma Sucuk Kaşar Sebzeli Tost</span><span class="price">250 TL</span></div>
+ <div class="item"><span class="item-name">Kavurma Sucuk Kaşar Küflü Peynir Tost</span><span class="price">260 TL</span></div>
+</div>
+</section>
+
+<!-- APERATİFLER VE MAKARNALAR -->
+<section class="category" id="aperatif">
+<h2 class="category-title">🍝 APERATİFLER & MAKARNALAR</h2>
+<img class="category-photo"
+src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1000"
+alt="Makarna çeşitleri">
+<p class="category-subtitle">Lezzetli aperatifler ve doyurucu makarnalar!</p>
+<div class="grid">
+ <div class="item"><span class="item-name">Patso</span><span class="price">200 TL</span></div>
+ <div class="item"><span class="item-name">Mini İçli Köfte (5'li)</span><span class="price">200 TL</span></div>
+ <div class="item"><span class="item-name">Kremalı Tavuklu Makarna</span><span class="price">220 TL</span></div>
+ <div class="item"><span class="item-name">Kıymalı Makarna</span><span class="price">220 TL</span></div>
+</div>
+</section>
+
+<!-- SICAK İÇECEKLER -->
+<section class="category" id="sicak">
+<h2 class="category-title">☕ SICAK İÇECEKLER</h2>
+<img class="category-photo"
+src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1000"
+alt="Çay">
+<div class="grid" style="margin-top:17px">
+ <div class="item"><span class="item-name">Çay</span><span class="price">20 TL</span></div>
+ <div class="item"><span class="item-name">Süt</span><span class="price">40 TL</span></div>
+ <div class="item"><span class="item-name">Salep</span><span class="price">90 TL</span></div>
+ <div class="item"><span class="item-name">Nescafe</span><span class="price">60 TL</span></div>
+ <div class="item"><span class="item-name">Türk Kahvesi</span><span class="price">80 TL</span></div>
+ <div class="item"><span class="item-name">Su</span><span class="price">20 TL</span></div>
+</div>
+</section>
+
+<!-- KAHVELER -->
+<section class="category" id="kahve">
+<h2 class="category-title">☕ KAHVE ÇEŞİTLERİ</h2>
+<img class="category-photo"
+src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000"
+alt="Kahve">
+<div class="grid" style="margin-top:17px">
+ <div class="item"><span class="item-name">Espresso</span><span class="price">90 TL</span></div>
+ <div class="item"><span class="item-name">Americano</span><span class="price">120 TL</span></div>
+ <div class="item"><span class="item-name">Latte</span><span class="price">130 TL</span></div>
+ <div class="item"><span class="item-name">Mocha</span><span class="price">140 TL</span></div>
+</div>
+</section>
+
+<!-- İLETİŞİM -->
+<section class="info">
+<h2>📍 MOLA 42 BÜFE</h2>
+<p>
+🛒 Market ürünlerimiz de bulunmaktadır.<br>
+Sigara ürünleri de mevcuttur.<br>
+🛵 Paket servis hizmetimiz vardır.
+</p>
+<strong>İletişim: Hakan Aydemir</strong><br>
+<a class="contact" href="tel:+905332855932">
+☎ 0533 285 59 32
+</a>
+</section>
+
+</main>
+
+<footer>
+<strong>MOLA 42 BÜFE</strong><br>
+Lezzetli molaların adresi!<br>
+Afiyet olsun, yine bekleriz. ❤️
+</footer>
+
+<script>
+function filterItems(){
+ const q=document.getElementById('search').value.toLocaleLowerCase('tr-TR');
+ document.querySelectorAll('.category').forEach(section=>{
+   let visible=0;
+   section.querySelectorAll('.item').forEach(item=>{
+     const match=item.innerText.toLocaleLowerCase('tr-TR').includes(q);
+     item.style.display=match?'flex':'none';
+     if(match) visible++;
+   });
+   section.style.display=visible?'block':'none';
+ });
+}
+</script>
+
+</body>
+</html>
