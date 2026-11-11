@@ -1,196 +1,343 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#103b25">
+<meta name="theme-color" content="#0d472a">
 <meta name="description" content="MOLA 42 BÜFE dijital menüsü. Kahvaltı, tost, makarna, aperatif ve kahve çeşitleri.">
 <title>MOLA 42 BÜFE | Dijital Menü</title>
 
 <style>
 :root {
- --green:#103b25;
- --green2:#1c6338;
- --yellow:#ffd43b;
- --orange:#ff8c24;
- --white:#fff;
- --dark:#101710;
+  --primary-green: #10b981;
+  --dark-green: #064e3b;
+  --deep-bg: #061910;
+  --card-bg: rgba(16, 45, 30, 0.75);
+  --accent-mint: #a7f3d0;
+  --white: #ffffff;
+  --text-muted: #d1fae5;
+  --border-green: rgba(16, 185, 129, 0.3);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
- margin:0;
- background:#101710;
- color:white;
- font-family:Arial,sans-serif;
+
+body {
+  margin: 0;
+  background: var(--deep-bg);
+  color: var(--white);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(6, 78, 59, 0.2) 0%, transparent 50%);
+  background-attachment: fixed;
 }
-header{
- background:linear-gradient(120deg,#103b25,#267b40);
- padding:22px 15px;
- text-align:center;
- border-bottom:5px solid var(--yellow);
+
+header {
+  background: linear-gradient(135deg, #064e3b 0%, #042f23 100%);
+  padding: 30px 15px;
+  text-align: center;
+  border-bottom: 4px solid var(--primary-green);
+  box-shadow: 0 4px 25px rgba(16, 185, 129, 0.2);
 }
-.logo{
- font-size:clamp(35px,8vw,65px);
- font-weight:1000;
- font-style:italic;
- color:white;
- text-shadow:3px 4px 0 #092616;
+
+.logo {
+  font-size: clamp(34px, 7vw, 60px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
 }
-header p{
- color:var(--yellow);
- font-weight:bold;
- letter-spacing:4px;
- font-size:12px;
+
+header p {
+  color: var(--accent-mint);
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-top: 6px;
 }
-.hero{
- min-height:340px;
- background:
- linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.15)),
- url("https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1400") center/cover;
- display:flex;
- flex-direction:column;
- justify-content:center;
- padding:35px 7%;
+
+.hero {
+  min-height: 320px;
+  background: 
+    linear-gradient(180deg, rgba(6, 25, 16, 0.7) 0%, rgba(6, 25, 16, 0.9) 100%),
+    url("https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1400") center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
 }
-.hero h1{
- font-size:clamp(32px,6vw,55px);
- max-width:550px;
- margin:0;
- color:var(--yellow);
- text-shadow:2px 3px 5px #000;
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  max-width: 650px;
+  margin: 0 0 12px 0;
+  color: var(--white);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
-.hero p{font-size:17px;font-weight:bold}
-.hero a{
- background:var(--yellow);
- color:#142819;
- padding:14px 25px;
- width:max-content;
- border-radius:30px;
- font-weight:900;
- text-decoration:none;
+
+.hero p {
+  font-size: 18px;
+  color: var(--accent-mint);
+  margin-bottom: 24px;
 }
-nav{
- display:flex;
- overflow-x:auto;
- gap:9px;
- padding:13px;
- background:#183c25;
- position:sticky;
- top:0;
- z-index:20;
+
+.hero a {
+  background: var(--primary-green);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+  transition: all 0.3s ease;
 }
-nav a{
- flex-shrink:0;
- background:var(--yellow);
- color:#142819;
- padding:11px 16px;
- border-radius:25px;
- text-decoration:none;
- font-weight:bold;
- font-size:13px;
+
+.hero a:hover {
+  transform: translateY(-2px);
+  background: #059669;
+  box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6);
 }
-.search{
- display:block;
- width:90%;
- max-width:550px;
- margin:22px auto;
- padding:15px;
- border-radius:30px;
- border:2px solid var(--yellow);
- font-size:16px;
+
+nav {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(6, 47, 35, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--border-green);
 }
-main{max-width:1100px;margin:auto;padding:12px}
-.category{margin:35px 0}
-.category-title{
- color:var(--yellow);
- font-size:25px;
- text-align:center;
- margin-bottom:17px;
+
+nav a {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid var(--border-green);
+  transition: all 0.25s ease;
 }
-.category-photo{
- width:100%;
- height:210px;
- object-fit:cover;
- border-radius:18px;
- border:2px solid var(--yellow);
- box-shadow:0 5px 20px #0008;
+
+nav a:hover {
+  background: var(--primary-green);
+  color: var(--white);
+  border-color: var(--primary-green);
 }
-.category-subtitle{
- text-align:center;
- color:#ddd;
- margin:12px 0 20px;
- font-size:14px;
+
+.search-container {
+  max-width: 600px;
+  margin: 25px auto 10px;
+  padding: 0 15px;
 }
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
- gap:13px;
+
+.search {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 50px;
+  border: 2px solid var(--border-green);
+  background: rgba(10, 35, 24, 0.8);
+  color: var(--white);
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
 }
-.item{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:10px;
- padding:17px;
- border-radius:13px;
- background:linear-gradient(130deg,#205b35,#153c25);
- border:1px solid #53824a;
- box-shadow:0 4px 12px #0005;
- transition:.2s;
+
+.search::placeholder {
+  color: #6ee7b7;
 }
-.item:hover{transform:translateY(-3px);border-color:var(--yellow)}
-.item-name{font-weight:bold;font-size:15px}
-.price{
- color:#171b0e;
- background:var(--yellow);
- border-radius:9px;
- padding:8px 10px;
- font-weight:1000;
- white-space:nowrap;
+
+.search:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
 }
-.ingredients{
- background:#214b30;
- border-left:5px solid var(--orange);
- padding:18px;
- border-radius:12px;
- line-height:2;
- font-size:14px;
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px;
 }
-.info{
- margin:40px 0;
- text-align:center;
- background:linear-gradient(135deg,#1c6338,#103b25);
- border:3px solid var(--yellow);
- border-radius:20px;
- padding:28px 15px;
+
+.category {
+  margin: 45px 0;
+  background: var(--card-bg);
+  border-radius: 24px;
+  border: 1px solid var(--border-green);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
 }
-.info h2{color:var(--yellow);font-size:27px}
-.info p{line-height:2}
-.contact{
- display:inline-block;
- background:#25c65a;
- color:white;
- text-decoration:none;
- padding:15px 25px;
- border-radius:30px;
- font-weight:bold;
- margin:8px;
+
+.category-banner {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
 }
-footer{
- text-align:center;
- background:#080f09;
- padding:25px;
- color:#ccc;
- font-size:13px;
- line-height:2;
+
+.category-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
 }
-footer strong{color:var(--yellow)}
-@media(max-width:500px){
- .hero{min-height:290px}
- .category-photo{height:165px}
- .grid{grid-template-columns:1fr}
+
+.category-header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(0deg, rgba(6, 25, 16, 0.95) 0%, transparent 100%);
+}
+
+.category-title {
+  color: var(--white);
+  font-size: 26px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-subtitle {
+  color: var(--accent-mint);
+  margin: 4px 0 0 0;
+  font-size: 14px;
+}
+
+.category-content {
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+  background: rgba(16, 185, 129, 0.12);
+  border-color: var(--primary-green);
+}
+
+.item-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+}
+
+.price {
+  color: var(--white);
+  background: var(--primary-green);
+  border-radius: 30px;
+  padding: 8px 14px;
+  font-weight: 800;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.ingredients-title {
+  color: var(--accent-mint);
+  margin: 24px 0 12px 0;
+  font-size: 18px;
+}
+
+.ingredients {
+  background: rgba(6, 78, 59, 0.4);
+  border-left: 4px solid var(--primary-green);
+  padding: 18px;
+  border-radius: 12px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.info {
+  margin: 50px 0;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.6), rgba(4, 47, 35, 0.8));
+  border: 2px solid var(--primary-green);
+  border-radius: 24px;
+  padding: 35px 20px;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+}
+
+.info h2 {
+  color: var(--white);
+  font-size: 28px;
+  margin-top: 0;
+}
+
+.info p {
+  line-height: 1.9;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary-green);
+  color: var(--white);
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 800;
+  margin-top: 15px;
+  font-size: 16px;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+  transition: all 0.3s ease;
+}
+
+.contact:hover {
+  transform: scale(1.03);
+  background: #059669;
+}
+
+footer {
+  text-align: center;
+  background: #030f0a;
+  padding: 30px;
+  color: #6ee7b7;
+  font-size: 14px;
+  line-height: 1.8;
+  border-top: 1px solid var(--border-green);
+}
+
+footer strong {
+  color: var(--white);
+}
+
+@media(max-width: 600px) {
+  nav { justify-content: flex-start; }
+  .hero { min-height: 280px; }
+  .category-banner { height: 160px; }
+  .grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -198,167 +345,196 @@ footer strong{color:var(--yellow)}
 <body>
 
 <header>
- <div class="logo">MOLA 42 BÜFE</div>
- <p>DİJİTAL MENÜ • LEZZETLİ MOLALAR</p>
+  <div class="logo">MOLA 42 BÜFE</div>
+  <p>DİJİTAL MENÜ • LEZZETLİ MOLALAR</p>
 </header>
 
 <section class="hero">
- <h1>GÜZEL BİR MOLA VER!</h1>
- <p>Kahvaltı, sıcacık tostlar ve nefis kahveler seni bekliyor.</p>
- <a href="#kahvalti">MENÜYÜ KEŞFET ↓</a>
+  <h1>GÜZEL BİR MOLA VER!</h1>
+  <p>Taze kahvaltı, nefis tostlar ve taze çekilmiş kahveler seni bekliyor.</p>
+  <a href="#kahvalti">MENÜYÜ KEŞFET ↓</a>
 </section>
 
 <nav>
- <a href="#kahvalti">Kahvaltı</a>
- <a href="#tava">Tava & Izgara</a>
- <a href="#tost">Tostlar</a>
- <a href="#aperatif">Aperatifler</a>
- <a href="#sicak">İçecekler</a>
- <a href="#kahve">Kahveler</a>
+  <a href="#kahvalti">Kahvaltı</a>
+  <a href="#tava">Tava & Izgara</a>
+  <a href="#tost">Tostlar</a>
+  <a href="#aperatif">Aperatifler</a>
+  <a href="#sicak">İçecekler</a>
+  <a href="#kahve">Kahveler</a>
 </nav>
 
-<input class="search" id="search"
-placeholder="🔎 Menüde ürün ara..."
-oninput="filterItems()">
+<div class="search-container">
+  <input class="search" id="search"
+  placeholder="🔎 Menüde arama yapın..."
+  oninput="filterItems()">
+</div>
 
 <main>
 
 <!-- KAHVALTI -->
 <section class="category" id="kahvalti">
-<h2 class="category-title">☀️ KAHVALTI</h2>
-<img class="category-photo"
-src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=1000"
-alt="Kahvaltı">
-<p class="category-subtitle">Güne lezzetli bir başlangıç!</p>
-<div class="grid">
- <div class="item"><span class="item-name">Ekmek Arası Serpme Kahvaltı</span><span class="price">240 TL</span></div>
- <div class="item"><span class="item-name">Kahvaltı Tabağı</span><span class="price">270 TL</span></div>
-</div>
-<h3 style="color:#ffd43b">Kahvaltı İçerikleri</h3>
-<div class="ingredients">
-Kavurma • Salam • Kaşar • Krem Peynir • Siyah Zeytin • Tereyağı • Bal • Çikolata • Haşlanmış Yumurta • Domates • Sucuk • Sosis • Beyaz Peynir • Küllü Peynir • Yeşil Zeytin • Helva • Kaymak • Fındık Ezmesi • Patso • Salatalık
-</div>
+  <div class="category-banner">
+    <img class="category-photo" src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=1000" alt="Kahvaltı">
+    <div class="category-header-overlay">
+      <h2 class="category-title">☀️ KAHVALTI</h2>
+      <p class="category-subtitle">Güne taze ve lezzetli bir başlangıç yapın!</p>
+    </div>
+  </div>
+  <div class="category-content">
+    <div class="grid">
+      <div class="item"><span class="item-name">Ekmek Arası Serpme Kahvaltı</span><span class="price">240 TL</span></div>
+      <div class="item"><span class="item-name">Kahvaltı Tabağı</span><span class="price">270 TL</span></div>
+    </div>
+    <h3 class="ingredients-title">Kahvaltı İçerikleri</h3>
+    <div class="ingredients">
+      Kavurma • Salam • Kaşar • Krem Peynir • Siyah Zeytin • Tereyağı • Bal • Çikolata • Haşlanmış Yumurta • Domates • Sucuk • Sosis • Beyaz Peynir • Küllü Peynir • Yeşil Zeytin • Helva • Kaymak • Fındık Ezmesi • Patso • Salatalık
+    </div>
+  </div>
 </section>
 
-<!-- TAVA -->
+<!-- TAVA & IZGARA -->
 <section class="category" id="tava">
-<h2 class="category-title">🍳 TAVA VE IZGARA</h2>
-<img class="category-photo"
-src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1000"
-alt="Yumurta ve kahvaltı">
-<p class="category-subtitle">Sıcak sıcak, taze taze!</p>
-<div class="grid">
- <div class="item"><span class="item-name">Menemen</span><span class="price">160 TL</span></div>
- <div class="item"><span class="item-name">Çılbır</span><span class="price">170 TL</span></div>
- <div class="item"><span class="item-name">Sucuklu Yumurta</span><span class="price">180 TL</span></div>
- <div class="item"><span class="item-name">Kavurmalı Yumurta</span><span class="price">240 TL</span></div>
- <div class="item"><span class="item-name">Ekmek Arası Tavuk Pirzola</span><span class="price">200 TL</span></div>
- <div class="item"><span class="item-name">Ekmek Arası Köfte</span><span class="price">240 TL</span></div>
- <div class="item"><span class="item-name">Kumru</span><span class="price">190 TL</span></div>
- <div class="item"><span class="item-name">FHM</span><span class="price">190 TL</span></div>
-</div>
+  <div class="category-banner">
+    <img class="category-photo" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1000" alt="Tava ve Izgara">
+    <div class="category-header-overlay">
+      <h2 class="category-title">🍳 TAVA VE IZGARA</h2>
+      <p class="category-subtitle">Sıcak sıcak, lezzet dolu çeşitler!</p>
+    </div>
+  </div>
+  <div class="category-content">
+    <div class="grid">
+      <div class="item"><span class="item-name">Menemen</span><span class="price">160 TL</span></div>
+      <div class="item"><span class="item-name">Çılbır</span><span class="price">170 TL</span></div>
+      <div class="item"><span class="item-name">Sucuklu Yumurta</span><span class="price">180 TL</span></div>
+      <div class="item"><span class="item-name">Kavurmalı Yumurta</span><span class="price">240 TL</span></div>
+      <div class="item"><span class="item-name">Ekmek Arası Tavuk Pirzola</span><span class="price">200 TL</span></div>
+      <div class="item"><span class="item-name">Ekmek Arası Köfte</span><span class="price">240 TL</span></div>
+      <div class="item"><span class="item-name">Kumru</span><span class="price">190 TL</span></div>
+      <div class="item"><span class="item-name">FHM</span><span class="price">190 TL</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- TOST -->
 <section class="category" id="tost">
-<h2 class="category-title">🥪 TOST MENÜSÜ</h2>
-<img class="category-photo"
-src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=1000"
-alt="Tost ve sandviç">
-<p class="category-subtitle">Tostlarımız tereyağlıdır!</p>
-<div class="grid">
- <div class="item"><span class="item-name">Sucuklu Tost</span><span class="price">150 TL</span></div>
- <div class="item"><span class="item-name">Kaşarlı Tost</span><span class="price">130 TL</span></div>
- <div class="item"><span class="item-name">Küflü Yeşil Peynir Tost</span><span class="price">160 TL</span></div>
- <div class="item"><span class="item-name">Sucuk Kaşar Sebzeli Tost</span><span class="price">170 TL</span></div>
- <div class="item"><span class="item-name">Kavurmalı Tost</span><span class="price">190 TL</span></div>
- <div class="item"><span class="item-name">Sucuk Kaşar Karışık Tost</span><span class="price">170 TL</span></div>
- <div class="item"><span class="item-name">Kavurma Kaşar Tost</span><span class="price">220 TL</span></div>
- <div class="item"><span class="item-name">Kavurma Kaşar Sebzeli Tost</span><span class="price">230 TL</span></div>
- <div class="item"><span class="item-name">Kavurma Sucuk Kaşar Sebzeli Tost</span><span class="price">250 TL</span></div>
- <div class="item"><span class="item-name">Kavurma Sucuk Kaşar Küflü Peynir Tost</span><span class="price">260 TL</span></div>
-</div>
+  <div class="category-banner">
+    <img class="category-photo" src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=1000" alt="Tost Menüsü">
+    <div class="category-header-overlay">
+      <h2 class="category-title">🥪 TOST MENÜSÜ</h2>
+      <p class="category-subtitle">Tüm tostlarımız özel tereyağı ile hazırlanır!</p>
+    </div>
+  </div>
+  <div class="category-content">
+    <div class="grid">
+      <div class="item"><span class="item-name">Sucuklu Tost</span><span class="price">150 TL</span></div>
+      <div class="item"><span class="item-name">Kaşarlı Tost</span><span class="price">130 TL</span></div>
+      <div class="item"><span class="item-name">Küflü Yeşil Peynir Tost</span><span class="price">160 TL</span></div>
+      <div class="item"><span class="item-name">Sucuk Kaşar Sebzeli Tost</span><span class="price">170 TL</span></div>
+      <div class="item"><span class="item-name">Kavurmalı Tost</span><span class="price">190 TL</span></div>
+      <div class="item"><span class="item-name">Sucuk Kaşar Karışık Tost</span><span class="price">170 TL</span></div>
+      <div class="item"><span class="item-name">Kavurma Kaşar Tost</span><span class="price">220 TL</span></div>
+      <div class="item"><span class="item-name">Kavurma Kaşar Sebzeli Tost</span><span class="price">230 TL</span></div>
+      <div class="item"><span class="item-name">Kavurma Sucuk Kaşar Sebzeli Tost</span><span class="price">250 TL</span></div>
+      <div class="item"><span class="item-name">Kavurma Sucuk Kaşar Küflü Peynir Tost</span><span class="price">260 TL</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- APERATİFLER VE MAKARNALAR -->
 <section class="category" id="aperatif">
-<h2 class="category-title">🍝 APERATİFLER & MAKARNALAR</h2>
-<img class="category-photo"
-src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1000"
-alt="Makarna çeşitleri">
-<p class="category-subtitle">Lezzetli aperatifler ve doyurucu makarnalar!</p>
-<div class="grid">
- <div class="item"><span class="item-name">Patso</span><span class="price">200 TL</span></div>
- <div class="item"><span class="item-name">Mini İçli Köfte (5'li)</span><span class="price">200 TL</span></div>
- <div class="item"><span class="item-name">Kremalı Tavuklu Makarna</span><span class="price">220 TL</span></div>
- <div class="item"><span class="item-name">Kıymalı Makarna</span><span class="price">220 TL</span></div>
-</div>
+  <div class="category-banner">
+    <img class="category-photo" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1000" alt="Aperatifler ve Makarnalar">
+    <div class="category-header-overlay">
+      <h2 class="category-title">🍝 APERATİFLER & MAKARNALAR</h2>
+      <p class="category-subtitle">Lezzetli atıştırmalıklar ve doyurucu menüler!</p>
+    </div>
+  </div>
+  <div class="category-content">
+    <div class="grid">
+      <div class="item"><span class="item-name">Hamburger Patates Menü</span><span class="price">300 TL</span></div>
+      <div class="item"><span class="item-name">Patso</span><span class="price">200 TL</span></div>
+      <div class="item"><span class="item-name">Mini İçli Köfte (5'li)</span><span class="price">200 TL</span></div>
+      <div class="item"><span class="item-name">Kremalı Tavuklu Makarna</span><span class="price">220 TL</span></div>
+      <div class="item"><span class="item-name">Kıymalı Makarna</span><span class="price">220 TL</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- SICAK İÇECEKLER -->
 <section class="category" id="sicak">
-<h2 class="category-title">☕ SICAK İÇECEKLER</h2>
-<img class="category-photo"
-src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1000"
-alt="Çay">
-<div class="grid" style="margin-top:17px">
- <div class="item"><span class="item-name">Çay</span><span class="price">20 TL</span></div>
- <div class="item"><span class="item-name">Süt</span><span class="price">40 TL</span></div>
- <div class="item"><span class="item-name">Salep</span><span class="price">90 TL</span></div>
- <div class="item"><span class="item-name">Nescafe</span><span class="price">60 TL</span></div>
- <div class="item"><span class="item-name">Türk Kahvesi</span><span class="price">80 TL</span></div>
- <div class="item"><span class="item-name">Su</span><span class="price">20 TL</span></div>
-</div>
+  <div class="category-banner">
+    <img class="category-photo" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1000" alt="Sıcak İçecekler">
+    <div class="category-header-overlay">
+      <h2 class="category-title">☕ SICAK İÇECEKLER</h2>
+      <p class="category-subtitle">İçinizi ısıtacak klasik lezzetler</p>
+    </div>
+  </div>
+  <div class="category-content">
+    <div class="grid">
+      <div class="item"><span class="item-name">Çay</span><span class="price">20 TL</span></div>
+      <div class="item"><span class="item-name">Süt</span><span class="price">40 TL</span></div>
+      <div class="item"><span class="item-name">Salep</span><span class="price">90 TL</span></div>
+      <div class="item"><span class="item-name">Nescafe</span><span class="price">60 TL</span></div>
+      <div class="item"><span class="item-name">Türk Kahvesi</span><span class="price">80 TL</span></div>
+      <div class="item"><span class="item-name">Su</span><span class="price">20 TL</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- KAHVELER -->
 <section class="category" id="kahve">
-<h2 class="category-title">☕ KAHVE ÇEŞİTLERİ</h2>
-<img class="category-photo"
-src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000"
-alt="Kahve">
-<div class="grid" style="margin-top:17px">
- <div class="item"><span class="item-name">Espresso</span><span class="price">90 TL</span></div>
- <div class="item"><span class="item-name">Americano</span><span class="price">120 TL</span></div>
- <div class="item"><span class="item-name">Latte</span><span class="price">130 TL</span></div>
- <div class="item"><span class="item-name">Mocha</span><span class="price">140 TL</span></div>
-</div>
+  <div class="category-banner">
+    <img class="category-photo" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000" alt="Kahve Çeşitleri">
+    <div class="category-header-overlay">
+      <h2 class="category-title">☕ KAHVE ÇEŞİTLERİ</h2>
+      <p class="category-subtitle">Taze çekilmiş espresso lezzetleri</p>
+    </div>
+  </div>
+  <div class="category-content">
+    <div class="grid">
+      <div class="item"><span class="item-name">Espresso</span><span class="price">110 TL</span></div>
+      <div class="item"><span class="item-name">Americano</span><span class="price">140 TL</span></div>
+      <div class="item"><span class="item-name">Latte</span><span class="price">150 TL</span></div>
+      <div class="item"><span class="item-name">Mocha</span><span class="price">160 TL</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- İLETİŞİM -->
 <section class="info">
-<h2>📍 MOLA 42 BÜFE</h2>
-<p>
-🛒 Market ürünlerimiz de bulunmaktadır.<br>
-Sigara ürünleri de mevcuttur.<br>
-🛵 Paket servis hizmetimiz vardır.
-</p>
-<strong>İletişim: Hakan Aydemir</strong><br>
-<a class="contact" href="tel:+905332855932">
-☎ 0533 285 59 32
-</a>
+  <h2>📍 MOLA 42 BÜFE</h2>
+  <p>
+    🛒 Market ürünlerimiz mevcuttur.<br>
+    🚬 Sigara ürünleri bulunmaktadır.<br>
+    🛵 Hızlı paket servis hizmetimiz vardır.
+  </p>
+  <strong style="color: var(--accent-mint); font-size: 18px;">İletişim: Hakan Aydemir</strong><br>
+  <a class="contact" href="tel:+905332855932">
+    📞 0533 285 59 32
+  </a>
 </section>
 
 </main>
 
 <footer>
-<strong>MOLA 42 BÜFE</strong><br>
-Lezzetli molaların adresi!<br>
-Afiyet olsun, yine bekleriz. ❤️
+  <strong>MOLA 42 BÜFE</strong><br>
+  Lezzetli molaların en taze adresi!<br>
+  Afiyet olsun, yine bekleriz. 🌿
 </footer>
 
 <script>
 function filterItems(){
- const q=document.getElementById('search').value.toLocaleLowerCase('tr-TR');
- document.querySelectorAll('.category').forEach(section=>{
-   let visible=0;
-   section.querySelectorAll('.item').forEach(item=>{
-     const match=item.innerText.toLocaleLowerCase('tr-TR').includes(q);
-     item.style.display=match?'flex':'none';
-     if(match) visible++;
-   });
-   section.style.display=visible?'block':'none';
- });
+  const q = document.getElementById('search').value.toLocaleLowerCase('tr-TR');
+  document.querySelectorAll('.category').forEach(section => {
+    let visible = 0;
+    section.querySelectorAll('.item').forEach(item => {
+      const match = item.innerText.toLocaleLowerCase('tr-TR').includes(q);
+      item.style.display = match ? 'flex' : 'none';
+      if(match) visible++;
+    });
+    section.style.display = visible ? 'block' : 'none';
+  });
 }
 </script>
 
